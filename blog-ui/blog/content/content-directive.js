@@ -5,7 +5,7 @@
 (function (){
     "use strict";
     angular
-        .module("blog.header")
+        .module("blog.content")
         .directive("blogContent", blogContent);
 
     function blogContent() {
