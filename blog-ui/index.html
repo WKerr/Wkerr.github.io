@@ -25,39 +25,20 @@
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">h1.title</h1>
-                <nav>
+                <h1 class="title">Another Blog</h1>
+<!--                <nav>
                     <ul>
                         <li><a href="#">nav ul li a</a></li>
                         <li><a href="#">nav ul li a</a></li>
                         <li><a href="#">nav ul li a</a></li>
                     </ul>
-                </nav>
+                </nav>-->
             </header>
         </div>
 
         <div class="main-container">
             <div class="main wrapper clearfix">
-
-                <article>
-                    <header>
-                        <h1>article header h1</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
-                    </header>
-                    <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
-                    </section>
-                    <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
-                    </section>
-                    <footer>
-                        <h3>article footer h3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
-                    </footer>
-                </article>
-
+                <div ui-view></div>
                 <aside>
                     <h3>aside</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
@@ -77,10 +58,12 @@
         <script src="js/vendor/angular.min.js"></script>
         <script src="js/vendor/angular-ui-router.min.js"></script>
 
-        <script src="js/main.js"></script>
+        <!--blog-->
+        <script src="blog/main.js"></script>
+        <script src="blog/route-config.js"></script>
 
         <!--Header-->
-        <script src="js/content/header.js"></script>
-        <script src="js/content/header-directive.js"></script>
+        <script src="blog/content/content.js"></script>
+        <script src="blog/content/content-directive.js"></script>
     </body>
 </html>
