@@ -26,13 +26,13 @@
         <div class="header-container">
             <header class="wrapper clearfix">
                 <h1 class="title">Another Blog</h1>
-<!--                <nav>
+                <nav>
                     <ul>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
+                        <li><a href="#" ui-sref="blog.home">blog</a></li>
+                        <li><a href="#" ui-sref="archive">archive</a></li>
+                        <li><a href="#" ui-sref="about">about</a></li>
                     </ul>
-                </nav>-->
+                </nav>
             </header>
         </div>
 
@@ -40,8 +40,8 @@
             <div class="main wrapper clearfix">
                 <div ui-view></div>
                 <aside>
-                    <h3>aside</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+                    <h3>Additional</h3>
+                    <p>Info</p>
                 </aside>
 
             </div> <!-- #main -->
@@ -56,18 +56,19 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/vendor/angular.min.js"></script>
+        <script src="js/vendor/angular-route.min.js"></script>
         <script src="js/vendor/angular-ui-router.min.js"></script>
 
         <!--blog-->
         <script src="blog/main.js"></script>
+        <!--blog-list-service-->
+        <script src="blog/blog-list/blog-list.js"></script>
+        <script src="blog/blog-list/blog-list-provider.js"></script>
+
         <script src="blog/route-config.js"></script>
 
-        <!--blog-list-service-->
-<!--        <script src="blog/blog-list/blog-list.js"></script>
-        <script src="blog/blog-list/blog-list-provider.js"></script>-->
-
         <!--Header-->
-        <script src="blog/content/content.js"></script>
-        <script src="blog/content/content-directive.js"></script>
+<!--        <script src="blog/content/content.js"></script>
+        <script src="blog/content/content-directive.js"></script>-->
     </body>
 </html>

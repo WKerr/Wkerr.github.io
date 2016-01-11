@@ -2,9 +2,14 @@
     "use strict";
     angular.module("blog", [
         /* core */
-        "ui.router",
+        "blog.core",
 
         /* post-list */
-/*        "blog.list"*/
+        "blog.list"
+    ]);
+
+    angular.module("blog.core", [
+        "ui.router",
+        "ngRoute"
     ]);
 })();
