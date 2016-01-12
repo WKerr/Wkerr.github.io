@@ -5,8 +5,8 @@
         var list = [{
             "date": "2016-01-08",
             "year": "2016",
-            "month": "1",
-            "day": "8",
+            "month": "01",
+            "day": "08",
             "name": "test post",
             "file": "post.html"
         }];
