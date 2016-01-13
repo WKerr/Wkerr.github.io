@@ -4,12 +4,19 @@
         /* core */
         "blog.core",
 
-        /* post-list */
-        "blog.list"
+        /* modules */
+        "blog.modules"
     ]);
 
     angular.module("blog.core", [
         "ui.router",
         "ngRoute"
     ]);
+
+    angular.module("blog.modules", [
+        "blog.list",
+        "blog.archive",
+        "blog.post"
+    ]);
+
 })();

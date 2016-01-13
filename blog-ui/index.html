@@ -28,7 +28,7 @@
                 <h1 class="title">Another Blog</h1>
                 <nav>
                     <ul>
-                        <li><a href="#" ui-sref="blog">blog</a></li>
+                        <li><a href="#" ui-sref="home">blog</a></li>
                         <li><a href="#" ui-sref="archive">archive</a></li>
                         <li><a href="#" ui-sref="about">about</a></li>
                     </ul>
@@ -40,6 +40,7 @@
             <div class="main wrapper clearfix">
                 <div ui-view></div>
                 <aside>
+                    <!--Advertisement-->
                     <h3>Additional</h3>
                     <p>Info</p>
                 </aside>
@@ -64,11 +65,16 @@
         <!--blog-list-service-->
         <script src="blog/blog-list/blog-list.js"></script>
         <script src="blog/blog-list/blog-list-provider.js"></script>
+        <script src="blog/blog-list/blog-list-service.js"></script>
 
         <script src="blog/route-config.js"></script>
 
-        <!--Header-->
-<!--        <script src="blog/content/content.js"></script>
-        <script src="blog/content/content-directive.js"></script>-->
+        <script src="blog/archive/archive.js"></script>
+        <script src="blog/archive/archive-controller.js"></script>
+
+        <script src="blog/post/post.js"></script>
+        <script src="blog/post/post-controller.js"></script>
+        <script src="blog/post/post-directive.js"></script>
+
     </body>
 </html>

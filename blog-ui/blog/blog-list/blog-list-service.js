@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    var blogList = function () {
+    var blogService = function () {
         var list = [{
             "date": "2016-01-08",
             "year": "2016",
@@ -59,13 +59,12 @@
         return provider;
     };
 
-
     /**
      * When injecting providers make sure to include the word, 'Provider' at the end. Example:. blogListProvider
      */
     angular
         .module("blog.list")
-        .provider("blogList", blogList);
+        .service("blogService", blogService);
 
 
 })();

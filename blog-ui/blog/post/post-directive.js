@@ -4,17 +4,18 @@
  */
 (function (){
     "use strict";
-    angular
-        .module("blog.content")
-        .directive("blogContent", blogContent);
 
-    function blogContent() {
+    function post() {
         return {
             restrict: "A",
             transclude: true,
             scope: true,
-            controller: "blogHeader",
-            controllerAs: "blogHeader",
+            controller: "postController",
+            controllerAs: "postController"
         };
     }
+
+    angular
+        .module("blog.post")
+        .directive("post", post);
 })();
