@@ -237,7 +237,7 @@ nav a:hover {
     WIDE: Main
    ============ */
 
-    .main article {
+    .main article, .main .comment {
         float: left;
         width: 57%;
     }

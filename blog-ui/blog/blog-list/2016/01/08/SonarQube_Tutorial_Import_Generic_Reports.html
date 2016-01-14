@@ -1,30 +1,30 @@
-<article>
-    <header>
-        <h1><a href="#/blog/{{postController.post.year}}/{{postController.post.month}}/{{postController.post.day}}/{{postController.post.file}}">SonarQube Tutorial - Import Generic Reports</a></h1>
-        <p>This tutorial will cover the topics needed to build your own generic report plugin. </p>
-    </header>
-    <section>
-        <h2>Setting up the Local Development Environment</h2>
-        <p>The SonarQube server is needed to act as our local development server to hold and display dashboard reports. The scanner tool will be run against a specific code base or report and send the results to the server to be parsed.</p>
-        <b>Things that are needed:</b>
-        <ol>
-            <li>Download the latest SonarQube server and scanner at, <a href="http://www.sonarqube.org/downloads/">http://www.sonarqube.org/downloads/</a></li>
-            <li>Get the latest plugin Java source files and set up workspace using Maven.</li>
-        </ol>
-        <p>*Note: Test that the standalone server works by running located in, "bin/{environment}/" folder in the SonarQube folder.</p>
-        <b>Setting up for IDE</b>
-        <p>Import the project using Maven pom.xml. Make sure the Java language level is set to 6+.</p>
-    </section>
-    <section>
-        <h2>Build the Jar</h2>
-        <p>To produce the standalone jar file, run the maven commands in the project root where pom.xml is located: "maven clean compile install" command. The resulting jar file should be located in the root of the project under, "/target/sonar-generic-imports.jar". (If an error occurs while running see debug section for more information). For specific plugin information see related sections.</p>
-    </section>
-    <section>
-        <h2>Deploy Plugin to the Server</h2>
-        <p></p>
-    </section>
-    <footer>
-        <h3>Closing Remarks</h3>
-        <p></p>
-    </footer>
-</article>
+<header>
+    <h1><a href="#/blog/{{postController.post.year}}/{{postController.post.month}}/{{postController.post.day}}/{{postController.post.file}}">SonarQube Tutorial - Import Generic Reports</a></h1>
+    <p>This tutorial will cover the topics needed to build your own generic report plugin. </p>
+</header>
+<section>
+    <h2>Setting up the Local Development Environment</h2>
+    <p>The SonarQube server is needed to act as our local development server to hold and display dashboard reports. The scanner tool will be run against a specific code base or report and send the results to the server to be parsed.</p>
+    <b>Things that are needed:</b>
+    <ol>
+        <li>Download the latest SonarQube server and scanner at, <a href="http://www.sonarqube.org/downloads/">http://www.sonarqube.org/downloads/</a></li>
+        <li>Get the latest plugin Java source files and set up workspace using Maven.</li>
+    </ol>
+    <p>*Note: Test that the standalone server works by running located in, "bin/{environment}/" folder in the SonarQube folder.</p>
+    <b>Setting up for IDE</b>
+    <p>Import the project using Maven pom.xml. Make sure the Java language level is set to 6+.</p>
+</section>
+<section>
+    <h2>Build the Jar</h2>
+    <p>To produce the standalone jar file, run the maven commands in the project root where pom.xml is located: "maven clean compile install" command. The resulting jar file should be located in the root of the project under, "/target/sonar-generic-imports.jar". (If an error occurs while running see debug section for more information). For specific plugin information see related sections.</p>
+</section>
+<section>
+    <h2>Deploy Plugin to the Server</h2>
+    <p></p>
+</section>
+<footer>
+    <h3>Closing Remarks</h3>
+    <p></p>
+</footer>
+
+

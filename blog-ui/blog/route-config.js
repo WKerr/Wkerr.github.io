@@ -50,7 +50,7 @@
                                 var search = blogListProvider.searchList($stateParams);
                                 return search;
                             }
-                        },
+                        }
                     },"blog2@home": {
                         templateUrl: homeSectionTemplate(1)
                     },"blog3@home": {
@@ -80,14 +80,16 @@
                                 return "blog/home/home.html";
                             }
                             var search = blogListProvider.searchList(params);
-                            return (search.year) ? "blog/blog-list/" + search.year + "/" + search.month + "/" + search.day + "/" + search.file : "404.html";
+                            return "blog/post/post.html";//(search.year) ? "blog/blog-list/" + search.year + "/" + search.month + "/" + search.day + "/" + search.file : "404.html";
                         }
                     },
-                    "post@blog":{
-
-                    },
-                    "afterFooter@blog":{
-
+                    "body@blog":{
+                      templateUrl: function (params) {
+                        var search = blogListProvider.searchList(params);
+                        return (search.year) ? "blog/blog-list/" + search.year + "/" + search.month + "/" + search.day + "/" + search.file : "404.html";
+                      }
+                    },"footer":{
+                    templateUrl:"blog/disqus/disqus.html"
                     }
 
                 }
