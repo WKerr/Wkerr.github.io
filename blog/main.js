@@ -5,7 +5,10 @@
         "blog.core",
 
         /* modules */
-        "blog.modules"
+        "blog.modules",
+
+        /* Disqus */
+        "angularUtils.directives.dirDisqus"
     ]);
 
     angular.module("blog.core", [

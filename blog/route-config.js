@@ -38,7 +38,6 @@
         $stateProvider
             .state("home", {
                 "url":"/",
-
                 views: {
                     "":{templateUrl: "blog/home/home.html"},
                     "blog1@home": {
@@ -64,14 +63,6 @@
             })
             .state("blog", {
                 url: "/blog/{year:.+}/{month:.+}/{day:.+}/:file",
-                controller: "postController",
-                controllerAs: "postController",
-                resolve: {
-                    "blogPost": function ($http, $stateParams) {
-                        var search = blogListProvider.searchList($stateParams);
-                        return search;
-                    }
-                },
                 views: {
                     "":{
                         templateUrl: function (params) {
@@ -80,16 +71,28 @@
                                 return "blog/home/home.html";
                             }
                             var search = blogListProvider.searchList(params);
-                            return "blog/post/post.html";//(search.year) ? "blog/blog-list/" + search.year + "/" + search.month + "/" + search.day + "/" + search.file : "404.html";
+                            //return "blog/post/post.html";//(search.year) ? "blog/blog-list/" + search.year + "/" + search.month + "/" + search.day + "/" + search.file : "404.html";
+                            return (search.year) ? "blog/post/post.html" : "404.html";
+                        },
+                        controller: "postController",
+                        controllerAs: "postController",
+                        resolve: {
+                            "blogPost": function ($http, $stateParams) {
+                                var search = blogListProvider.searchList($stateParams);
+                                return search;
+                            }
                         }
                     },
                     "body@blog":{
-                      templateUrl: function (params) {
-                        var search = blogListProvider.searchList(params);
-                        return (search.year) ? "blog/blog-list/" + search.year + "/" + search.month + "/" + search.day + "/" + search.file : "404.html";
-                      }
-                    },"footer":{
-                    templateUrl:"blog/disqus/disqus.html"
+                        templateUrl: function (params) {
+                            var search = blogListProvider.searchList(params);
+                            return (search.year) ? "blog/blog-list/" + search.year + "/" + search.month + "/" + search.day + "/" + search.file : "404.html";
+                        }
+                    },
+                    "footer@blog":{
+                        templateUrl: function (params) {
+                            return "blog/disqus/disqus.html";
+                        }
                     }
 
                 }

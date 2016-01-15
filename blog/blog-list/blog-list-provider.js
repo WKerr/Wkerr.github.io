@@ -7,9 +7,9 @@
             "year": "2016",
             "month": "01",
             "day": "08",
-            "file": "SonarQube_Tutorial_Import_Generic_Reports.html",
-            "name": "SonarQube Tutorial - Import Generic Reports",
-            "desc":"This tutorial will cover the topics needed to build your own generic report plugin."
+            "file": "SonarQube_Tutorial_Import_Generic_Reports_p1.html",
+            "name": "SonarQube Tutorial - Import Generic Reports Part 1",
+            "desc":"This tutorial will cover how to set up your environment for sonarQube development. The topics needed to build your own generic report plugin will follow."
         }];
 
 
