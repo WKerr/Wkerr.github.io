@@ -8,7 +8,11 @@
         "blog.modules",
 
         /* Disqus */
-        "angularUtils.directives.dirDisqus"
+        "angularUtils.directives.dirDisqus",
+
+        /* analytics */
+        "angulartics",
+        "angulartics.google.analytics"
     ]);
 
     angular.module("blog.core", [
