@@ -62,7 +62,7 @@
                 }
             })
             .state("blog", {
-                url: "/blog/{year:.+}/{month:.+}/{day:.+}/:file",
+                url: "/{year:.+}/{month:.+}/{day:.+}/:file",
                 views: {
                     "":{
                         templateUrl: function (params) {
