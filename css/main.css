@@ -242,6 +242,11 @@ nav a:hover {
         width: 57%;
     }
 
+    .main .comment {
+        float: left;
+        width: 100%
+    }
+
     .main aside {
         float: right;
         width: 28%;
