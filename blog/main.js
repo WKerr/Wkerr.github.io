@@ -23,7 +23,9 @@
     angular.module("blog.modules", [
         "blog.list",
         "blog.archive",
-        "blog.post"
+        "blog.home",
+        "blog.post",
+        "blog.post.snippet"
     ]);
 
 })();

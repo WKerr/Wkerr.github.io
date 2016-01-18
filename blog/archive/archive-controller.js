@@ -4,7 +4,6 @@
         this.blogList = blogServ.list;
     };
 
-    //config.$inject = ["$stateProvider", "$urlRouterProvider", "blogListProvider"];
     archiveController.$inject = ["blogServ"];
 
     angular.module("blog.archive")

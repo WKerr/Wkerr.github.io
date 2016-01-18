@@ -1,7 +1,7 @@
 <div class="comment">
     <dir-disqus disqus-shortname="kerrhouse"
-                disqus-identifier="postController.post.name"
-                disqus-url="http://localhost:8088/#/blog/2016/01/08/SonarQube_Tutorial_Import_Generic_Reports_p1.html">
+                disqus-identifier="{{postController.post.name}}"
+                disqus-url="{{'http://wkerr.github.io/#/'+postController.post.year+'/'+postController.post.month+'/'+postController.post.day+'/'+postController.post.file}}">
     </dir-disqus><!--
     <div id="disqus_thread"></div>
     <script>

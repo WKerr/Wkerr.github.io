@@ -1,7 +1,5 @@
 (function () {
     "use strict";
-    //TODO disqus
-    //TODO google analytics
 
     /**
      * Format the first digit to zero for extra padding.
@@ -39,25 +37,15 @@
             .state("home", {
                 "url":"/",
                 views: {
-                    "":{templateUrl: "blog/home/home.html"},
-                    "blog1@home": {
-                        templateUrl: homeSectionTemplate(0),
-                        controller: "postController",
-                        controllerAs: "postController",
+                    "":{
+                        templateUrl: "blog/home/home.html",
+                        controller: "homeController",
+                        controllerAs: "homeController",
                         resolve: {
-                            "blogPost": function ($http, $stateParams) {
-                                var search = blogListProvider.searchList($stateParams);
-                                return search;
+                            "blogServ": function () {
+                                return blogListProvider;
                             }
                         }
-                    },"blog2@home": {
-                        templateUrl: homeSectionTemplate(1)
-                    },"blog3@home": {
-                        templateUrl: homeSectionTemplate(2)
-                    },"blog4@home": {
-                        templateUrl: homeSectionTemplate(3)
-                    },"blog5@home": {
-                        templateUrl: homeSectionTemplate(4)
                     }
                 }
             })
@@ -96,7 +84,8 @@
                     }
 
                 }
-            }).state("archive", {
+            })
+            .state("archive", {
                 url:"/archive",
                 templateUrl: "blog/archive/archive.html",
                 controller: "archiveController",
@@ -105,7 +94,8 @@
                     return blogListProvider;
                 } }
 
-            }).state("about", {
+            })
+            .state("about", {
                 url:"/about",
                 templateUrl: "blog/about/about.html"
             });
