@@ -162,7 +162,11 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
-
+pre {
+    border-style: dashed;
+    border: 1px;
+    border-color: aquamarine;
+}
 
 
 
