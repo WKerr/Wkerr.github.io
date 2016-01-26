@@ -1,5 +1,5 @@
 <header>
-    <h1><a href="#/{{post.year}}/{{post.month}}/{{post.day}}/{{post.file}}">{{post.name}}</a></h1>
+    <h1><a href="#!/{{post.year}}/{{post.month}}/{{post.day}}/{{post.file}}">{{post.name}}</a></h1>
     <p>{{post.desc}}</p>
     <p>The majority of the tutorial will be done assuming IDE support.</p>
 </header>
@@ -18,13 +18,13 @@
 <section>
     <h2>Build the Jar</h2>
     <p>To produce the standalone jar file, run the maven commands in the project root where pom.xml is located.
-    <pre><code language="cmd">maven clean compile install</code></pre> The resulting jar file should be located in the root of the project under, "/target/sonar-generic-imports.jar". (If an error occurs while running see debug section for more information). For specific plugin information see related sections.</p>
+    <pre>maven clean compile install</pre> The resulting jar file should be located in the root of the project under, "/target/sonar-generic-imports.jar". (If an error occurs while running see debug section for more information). For specific plugin information see related sections.</p>
 </section>
 <section>
     <h2>How to Deploy Plugin to the Server?</h2>
     <p>In order for the plugin to be run you must compile  into a JAR file and placed in the server plugin folder. The plugin will be picked up on the next server restart.
 
-        Sonar Plugin folder: "/extensions/plugins/"
+        Sonar Plugin folder: <pre>{Sonar-Server}/extensions/plugins/</pre>
 
         If an error occurs on the next restart see the debug section for more details.
     </p>

@@ -12,3 +12,6 @@ gulp.task("scripts", function () {
         .pipe(gulp.dest(""))
         .pipe(notify({message: "scripts task complete"}));
 })
+
+//Task that is run if you enter gulp in the cmd.
+gulp.task('default', ['scripts']);
