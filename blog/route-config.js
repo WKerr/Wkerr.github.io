@@ -21,9 +21,8 @@
      * @param $urlRouterProvider
      * @param blogListProvider
      */
-    function config($stateProvider, $urlRouterProvider, $locationProvider, blogListProvider) {
+    function config($stateProvider, $urlRouterProvider, blogListProvider) {
 
-        $locationProvider.hashPrefix('!');
 
         $urlRouterProvider.otherwise(function () {
             return "/";
@@ -105,7 +104,7 @@
 
     }
 
-    config.$inject = ["$stateProvider", "$urlRouterProvider", "$locationProvider", "blogListProvider"];
+    config.$inject = ["$stateProvider", "$urlRouterProvider", "blogListProvider"];
 
     angular.module("blog")
         .config(config);

@@ -14,3 +14,4 @@ Minify the javascript files and css files.
 <h2>HIGH PRIORITY</h2>
 update site to new template
 Add highlight js highlight.js
+unable to change view. Might have to use jekylllll
