@@ -40,7 +40,7 @@
     <h3>Modifying Sonar Scanner Debug Mode</h3>
     <ol>
         <li>Include the following settings in the batch file of the Scanner:
-            SET SONAR_RUNNER_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+            <pre>SET SONAR_RUNNER_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000</pre>
 
             It will have worked correctly if it starts waiting for a host to connect to port 8000.
         </li>
@@ -50,7 +50,7 @@
     <h3>Modifying Sonar Server to Debug Mode (never worked for me)</h3>
     <ol>
         <li>Modify, 'conf/wrapper.conf' file in SonarQube server.</li>
-        <li>Add, 'wrapper.java.additional.2=-agentlib:jdwp=transport=dt_socket,server=y,address=8001' to the file</li>
+        <li>Add, <pre>wrapper.java.additional.2=-agentlib:jdwp=transport=dt_socket,server=y,address=8001</pre> to the file</li>
         <li>Set up IDE to do a remote connection with host:localhost port:8001</li>
         <li>Run the remote connect after starting the SonarQube Server</li>
     </ol>
