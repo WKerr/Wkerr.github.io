@@ -4,6 +4,7 @@
   "description": "New DocPad project without using a skeleton",
   "dependencies": {
     "docpad": "~6.78.4",
+    "docpad-plugin-eco": "~2.1.0",
     "docpad-plugin-ghpages": "~2.4.4"
   },
   "main": "node_modules/.bin/docpad-server",
