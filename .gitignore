@@ -1,4 +1,4 @@
 .idea
-.ml
+*.iml
 node_modules
 out
