@@ -1,0 +1,11 @@
+---
+layout: "default"
+---
+
+        <section class="intro">
+            <h1><a href="<% @document.url %>"><%= @document.info.name  %></a></h1>
+            <span class="time-stamp">Published on: <%= @document.info.strDate %></span>
+            <p><%= @document.info.description  %></p>
+        </section>
+
+        <%- @content %>
