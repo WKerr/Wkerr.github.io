@@ -348,13 +348,11 @@ header {
   -moz-transition-delay: 50ms;
   transition-delay: 50ms;
 }
-/*
 header:after {
   content: "";
   display: table;
   clear: both;
 }
-*/
 @media screen and (max-width: 540px) {
   header {
     margin-top: 2em;
