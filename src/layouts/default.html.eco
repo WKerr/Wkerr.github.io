@@ -33,8 +33,8 @@
 	 		<nav>
 				<ul>
 					<li><a href="/">Blog</a></li>
-					<li><a href="archive.html">Archive</a></li>
-					<li><a href="about.html">About</a></li>
+					<li><a href="/archive.html">Archive</a></li>
+					<li><a href="/about.html">About</a></li>
 					<!--<li><a href="mailto:your@address.com" class="bordered">Contact</a></li>-->
 				</ul>
 			</nav>
