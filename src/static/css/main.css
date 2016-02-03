@@ -317,16 +317,30 @@ cite:before {
 }
 
 body {
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+@media screen and (max-width: 720px) {
+  body {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+.time-stamp {
+  /*color:#E85151;*/
 }
 
 a {
-  border-bottom: 1px solid #ced9e0;
+  border-bottom: 1px solid #e85151;
+  color: #e85151;
+}
+a.name {
+  border-bottom: 0px ;
 }
 
 a:hover {
-  color: #e85151;
+  color: #ced9e0;
 }
 
 header {
@@ -492,11 +506,11 @@ header nav ul li a.bordered {
   }
 }
 #content section.intro h1 {
-  font-size: 8em;
+  font-size: 4em;
   border-top: 2px solid #fff;
   letter-spacing: -0.05em;
   margin-top: 1.2em;
-  margin-bottom: 1em;
+  margin-bottom: 0em;
 }
 @media screen and (max-width: 540px) {
   #content section.intro h1 {
@@ -532,7 +546,7 @@ header nav ul li a.bordered {
 }
 #content section.row h2 {
   text-transform: uppercase;
-  font-size: 1.0em;
+  font-size: 2.0em;
   font-weight: bold;
   color: #e85151;
   margin-bottom: 0.05em;
