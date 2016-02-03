@@ -1,0 +1,16 @@
+---
+layout: "default"
+---
+
+        <%- @content %>
+
+        <% for post in @getCollection("blogPages").toJSON():%>
+        <section class="intro">
+            <h1><a class="name" href="<%= post.url %>"><%= post.info.name %></a></h1>
+            <span class="time-stamp">Published on: <%= post.info.strDate %></span>
+            <p>
+                <%= post.info.description %>
+            </p>
+            <span class="read-more"><a href="<%= post.url %>">Read More...</a></span>
+        </section>
+        <% end %>

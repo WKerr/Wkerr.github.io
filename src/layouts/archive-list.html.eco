@@ -7,7 +7,7 @@ layout: "default"
         <% for post in @getCollection("blogPages").toJSON():%>
         <section class="row">
             <div class="col-full">
-                <h2><a href="<%= post.url %>"><%= post.info.name %></a></h2>
+                <h2><a post="name" href="<%= post.url %>"><%= post.info.name %></a></h2>
                 <span class="time-stamp">Published on: <%= post.info.strDate %></span>
                 <p>
                     <%= post.info.description %>

@@ -11,7 +11,8 @@ info:
 ---
 
 
-<section>
+<section class="row">
+
     <h2>Setting up the SonarQube Development Environment</h2>
     <p>The SonarQube server is needed to act as our local development server to hold and display dashboard reports. The scanner tool will be run against a specific code base or report and send the results to the server to be parsed.</p>
     <b>Things that are needed:</b>
@@ -23,13 +24,13 @@ info:
     <p>*Note: maven is require either by cmd or in your IDE.</p>
     <p>When setting up for IDE, import the project using Maven pom.xml. Make sure the Java language level is set to 6+.</p>
 </section>
-<section>
+<section class="row">
     <h2>Build the Jar</h2>
     <p>To produce the standalone jar file, run the maven commands in the project root where pom.xml is located.
         <pre>maven clean compile install</pre> The resulting jar file should be located in the root of the project under, "/target/sonar-generic-imports.jar". (If an error occurs while running see debug section for more information). For specific plugin information see related sections.
     </p>
 </section>
-<section>
+<section class="row">
     <h2>How to Deploy Plugin to the Server?</h2>
     <p>In order for the plugin to be run you must compile  into a JAR file and placed in the server plugin folder. The plugin will be picked up on the next server restart.
 
@@ -38,7 +39,7 @@ info:
     If an error occurs on the next restart see the debug section for more details.
     </p>
 </section>
-<section>
+<section class="row">
     <h2>How to debug</h2>
     <p>Maven - check the stack trace of the run by adding either flag, '-X','-e'. The first will give the full debug log and other respectively will return the full error stack trace.
     </p>
@@ -59,13 +60,13 @@ info:
     <h3>Modifying Sonar Server to Debug Mode (never worked for me)</h3>
     <ol>
         <li>Modify, 'conf/wrapper.conf' file in SonarQube server.</li>
-        <li>Add, <pre>wrapper.java.additional.2=-agentlib:jdwp=transport=dt_socket,server=y,address=8001</pre> to the file</li>
+        <li>Add, <pre class="nohighlight">wrapper.java.additional.2=-agentlib:jdwp=transport=dt_socket,server=y,address=8001</pre> to the file</li>
         <li>Set up IDE to do a remote connection with host:localhost port:8001</li>
         <li>Run the remote connect after starting the SonarQube Server</li>
     </ol>
 
-</section>
-<footer>
+</section >
+<footer class="row">
     <h3>Closing Remarks</h3>
     <p>Future posts will cover how to modify the plugin to suit your needs.</p>
 </footer>
