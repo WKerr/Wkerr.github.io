@@ -7,4 +7,6 @@ $(document).ready(function() {
 		$('a[rel="lightbox"]').fluidbox();
 	})
 
+	hljs.initHighlightingOnLoad();
+
 });
