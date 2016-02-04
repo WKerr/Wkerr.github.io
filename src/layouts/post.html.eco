@@ -7,8 +7,9 @@ layout: "default"
             <span class="time-stamp">Published on: <%= @document.info.strDate %></span>
             <p><%= @document.info.description  %></p>
         </section>
-
-        <%- @content %>
+        <section class="row">
+            <%- @content %>
+        </section>
 
         <div id="disqus_thread"></div>
         <script>
