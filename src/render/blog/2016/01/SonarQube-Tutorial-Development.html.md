@@ -13,8 +13,8 @@ info:
 ## Setting up the SonarQube Development Environment
 The SonarQube server is needed to act as our local development server to hold and display dashboard reports. The scanner tool will be run against a specific code base or report and send the results to the server to be parsed.
 Things that are needed:
-1. Download the latest SonarQube server and scanner at, <a href="http://www.sonarqube.org/downloads/">http://www.sonarqube.org/downloads/</a>
-2. Get the sample plugin Java source files and set up workspace using Maven. <a href="http://docs.sonarqube.org/display/PLUG/Generic+Test+Coverage">http://docs.sonarqube.org/display/PLUG/Generic+Test+Coverage</a>
+1. Download the latest SonarQube server and scanner at, [sonarqube.org/downloads/](http://www.sonarqube.org/downloads/)
+2. Get the sample [Generic Test Coverage](http://docs.sonarqube.org/display/PLUG/Generic+Test+Coverage) plugin Java source files and set up workspace using Maven.
 
 *Note: Test that the standalone server works by running located in, "bin/{environment}/" folder in the SonarQube folder. Where {environment} is the current operating system.
 maven is require either by cmd or in your IDE.
@@ -46,6 +46,7 @@ SonarQube Scanner - If the scanner fails to run, check the console output for ad
 
 ### Modifying Sonar Scanner Debug Mode
 1. Include the following settings in the batch file of the Scanner:
+
         SET SONAR_RUNNER_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
    It will have worked correctly if it starts waiting for a host to connect to port 8000.
 2. Set up IDE to do a remote connection with host:localhost port:8000
@@ -56,10 +57,11 @@ SonarQube Scanner - If the scanner fails to run, check the console output for ad
 ### Modifying Sonar Server to Debug Mode (never worked for me)
 1. Modify, 'conf/wrapper.conf' file in SonarQube server.
 2. Add,
+
         wrapper.java.additional.2=-agentlib:jdwp=transport=dt_socket,server=y,address=8001
 3. Set up IDE to do a remote connection with host:localhost port:8001
 4. Run the remote connect after starting the SonarQube Server
 
 
-## Closing Remarks
-Future posts will cover how to modify the plugin to suit your needs.
+## Summary
+So we've built a plugin and deployed it to our SonarQube server. Learnt to debug our plugin with our ide if there are problems. In the future we will cover more of the inner workings of plugins.
