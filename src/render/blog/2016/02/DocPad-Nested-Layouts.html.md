@@ -30,8 +30,8 @@ The markup that you see below that is at the begining of your `layouts` or `(ren
 ```
 
 ## Example
-Lets look at the following:
-   Folder Structure:
+Lets look at the following example. We want to pass the contents of, `index -> index-somthing -> default`
+##### Folder Structure:
 ```
     layouts/
         default.html.eco
@@ -40,7 +40,7 @@ Lets look at the following:
         index.html
     static/
 ```
-   index.html
+##### index.html
 ```
     ---
     title: "Best thing ever!"
@@ -48,7 +48,8 @@ Lets look at the following:
     ---
     <p>This will be the best website ever.</p>
 ```
-   index-somthing.html.eco
+The `index.html` first gets rendered from eco to html then meta data in YAML specifies to the layout `index-somthing.html.eco`. You do not specify the file extensions when it is referenced in the YAML metadata layout.
+##### index-somthing.html.eco
 ```
     ---
     layout: "default"
@@ -56,7 +57,8 @@ Lets look at the following:
 	<h2>Header</h2>
     <%- @content %>
 ```
-   default.html.eco
+Notice in this file, `<%- @content %>` which specifies where the content from the previous file to be included will be placed. We also include Meta Data `layout` to sent it's contents to `default.html.eco`.
+##### default.html.eco
 ```html
     <html>
     <body>
@@ -66,7 +68,8 @@ Lets look at the following:
     </body>
     </html>
 ```
-   rendered index.html
+This file also contains `<%- @content %>` which will grab the rendered content from the previous file and place in the document.
+##### Rendered index.html
 ```html
 	<html>
     <body>
@@ -77,9 +80,9 @@ Lets look at the following:
     </body>
     </html>
 ```
-
+Here is the final rendered file which would appear in the `out/` folder.
 ## Summary
-  The index.html first gets rendered and sent to the index-somthing.html.eco file and passed in through the content param. It then gets sent to the default.html.eco and passed to the content param in that file. See that wasn't so bad.
+  Include meta data in document start to point to another file. That file should have `<%- @content %>` to be a marker of where the content should be placed. Just repeat that partner to nest files continuously. See, that wasn't so bad!
 
 
 
