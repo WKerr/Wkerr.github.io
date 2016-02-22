@@ -9,6 +9,7 @@
         <title><%= @site.title %><%= @getPreparedTitle() %></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#22272a">
         <link rel="apple-touch-icon" href="035.png">
         <link rel="shortcut icon" href="035.png">
 
