@@ -1,0 +1,145 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>WKerr House | SonarQube Tutorial - Setting up for Development</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#22272a">
+        <link rel="apple-touch-icon" href="035.png">
+        <link rel="shortcut icon" href="035.png">
+
+        <link  rel="stylesheet" href="/css/fluidbox.min.css" /><link  rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+
+        <!--[if lt IE 9]>
+            <script src="/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+
+			<div id="logo-container">
+				<div id="logo"><a href="/">Wkerr House</a></div>
+				<div id="subtitle"></div>
+			</div>
+	 		<nav>
+				<ul>
+					<li><a href="/">Blog</a></li>
+					<li><a href="/archive.html">Archive</a></li>
+					<li><a href="/about.html">About</a></li>
+				</ul>
+			</nav>
+
+		</header>
+		<div id="content">
+        	<section class="intro">
+            <h1><a class="name" href="">SonarQube Tutorial - Setting up for Development</a></h1>
+            <span class="time-stamp">Published on: January 8th, 2016</span>
+            <p>This tutorial will cover how to set up your environment for SonarQube development covering how to build, deploy and debug.</p>
+        </section>
+        <section class="row">
+            <h2 id="setting-up-the-sonarqube-development-environment">Setting up the SonarQube Development Environment</h2>
+<p>The SonarQube server is needed to act as our local development server to hold and display dashboard reports. The scanner tool will be run against a specific code base or report and send the results to the server to be parsed.
+Things that are needed:</p>
+<ol>
+<li>Download the latest SonarQube server and scanner at, <a href="http://www.sonarqube.org/downloads/">sonarqube.org/downloads/</a></li>
+<li>Get the sample <a href="http://docs.sonarqube.org/display/PLUG/Generic+Test+Coverage">Generic Test Coverage</a> plugin Java source files and set up workspace using Maven.</li>
+</ol>
+<p><em>Note: Test that the standalone server works by running located in, &quot;bin/{environment}/&quot; folder in the SonarQube folder. Where {environment} is the current operating system.
+maven is require either by cmd or in your IDE.
+When setting up for IDE, import the project using Maven pom.xml. Make sure the Java language level is set to 6+.</em></p>
+<h2 id="build-the-jar">Build the Jar</h2>
+<p>To produce the standalone jar file, run the maven commands in the project root where pom.xml is located.</p>
+<pre><code>    maven clean compile install
+</code></pre><p>The resulting jar file should be located in the root of the project under:</p>
+<pre><code>    /target/sonar-generic-imports.jar
+</code></pre><p>(If an error occurs while running see debug section for more information). For specific plugin information see related sections.</p>
+<h2 id="how-to-deploy-plugin-to-the-server-">How to Deploy Plugin to the Server?</h2>
+<p>In order for the plugin to be run you must compile into a JAR file and placed in the server plugin folder. The plugin will be picked up on the next server restart. Sonar Plugin folder:</p>
+<pre><code>    {Sonar-Server}/extensions/plugins/
+</code></pre><p>If an error occurs on the next restart see the debug section for more details.</p>
+<h2 id="how-to-debug">How to debug</h2>
+<p>Maven - check the stack trace of the run by adding either flag, <code>-X</code>,<code>-e</code>. The first will give the full debug log and other respectively will return the full error stack trace.
+SonarQube Server - If the server fails to start, check the server logs for additional information. A stack trace is provided if it is caused by the plugin.
+SonarQube Scanner - If the scanner fails to run, check the console output for additional information. A stack trace can be found by adding additional flag, <code>-X</code>. If you would like to step through the code see below for more information.</p>
+<h3 id="modifying-sonar-scanner-debug-mode">Modifying Sonar Scanner Debug Mode</h3>
+<ol>
+<li><p>Include the following settings in the batch file of the Scanner:</p>
+<pre><code> SET SONAR_RUNNER_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+</code></pre><p>It will have worked correctly if it starts waiting for a host to connect to port 8000.</p>
+</li>
+<li>Set up IDE to do a remote connection with host:localhost port:8000</li>
+<li>Run the remote connect after starting the Scanner</li>
+</ol>
+<h3 id="modifying-sonar-server-to-debug-mode-never-worked-for-me-">Modifying Sonar Server to Debug Mode (never worked for me)</h3>
+<ol>
+<li>Modify, &#39;conf/wrapper.conf&#39; file in SonarQube server.</li>
+<li><p>Add,</p>
+<pre><code> wrapper.java.additional.2=-agentlib:jdwp=transport=dt_socket,server=y,address=8001
+</code></pre></li>
+<li>Set up IDE to do a remote connection with host:localhost port:8001</li>
+<li>Run the remote connect after starting the SonarQube Server</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>So we&#39;ve built a plugin and deployed it to our SonarQube server. Learnt to debug our plugin with our ide if there are problems. In the future we will cover more of the inner workings of plugins.</p>
+
+        </section>
+
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+             var disqus_config = function () {
+             this.page.url = "http://www.wkerrhouse.com/blog/2016/01/SonarQube-Tutorial-Development.html";  // Replace PAGE_URL with your page's canonical URL variable
+             this.page.identifier = 'SonarQube Tutorial - Setting up for Development'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+             };
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+
+                s.src = '//kerrhouse.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            <section class="row">
+                <div class="col-full">
+                    <p>
+                        Copyright &copy; 2016+ All rights reserved.
+                    </p>
+                </div>
+            </section>
+		</div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script defer="defer"  src="/vendor/jquery.fluidbox.min.js"></script><script defer="defer"  src="/js/main.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-48850821-3', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+
+    </body>
+</html>

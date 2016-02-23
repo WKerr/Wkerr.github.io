@@ -1,0 +1,161 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>WKerr House | DocPad Nested Layouts Example</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#22272a">
+        <link rel="apple-touch-icon" href="035.png">
+        <link rel="shortcut icon" href="035.png">
+
+        <link  rel="stylesheet" href="/css/fluidbox.min.css" /><link  rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+
+        <!--[if lt IE 9]>
+            <script src="/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+
+			<div id="logo-container">
+				<div id="logo"><a href="/">Wkerr House</a></div>
+				<div id="subtitle"></div>
+			</div>
+	 		<nav>
+				<ul>
+					<li><a href="/">Blog</a></li>
+					<li><a href="/archive.html">Archive</a></li>
+					<li><a href="/about.html">About</a></li>
+				</ul>
+			</nav>
+
+		</header>
+		<div id="content">
+        	<section class="intro">
+            <h1><a class="name" href="">DocPad Nested Layouts Example</a></h1>
+            <span class="time-stamp">Published on: February 8th, 2016</span>
+            <p>How to have one layout include another layout</p>
+        </section>
+        <section class="row">
+            <h2 id="introduction">Introduction</h2>
+<p>So you have started a new docpad project and want to know how to nest layouts. First thing you should probably get your head around is the different renderings that are being applied to your files.</p>
+<h2 id="how-files-are-rendering">How Files are Rendering</h2>
+<p>There are two main methods for files to be rendered: <code>YAML</code>, and file conversions. In your project there are 3 main folders: <code>(static/files)</code>, <code>(render/document)</code>, and <code>layouts</code>. <code>Static/files</code> are ignored by all rendering so we can skip those. <code>layouts</code> and <code>render/documents</code> is where we will focus our attention.</p>
+<h2 id="file-rendering">File Rendering</h2>
+<p>Documents can be rendered from one language to another. For example, <code>src/render/index.html.md</code> will be rendered from Markdown to html <code>out/index.html</code>. Regardless of which document rendering is being used each file has access to the YAML markup.</p>
+<h2 id="yaml">YAML</h2>
+<p>The markup that you see below that is at the begining of your <code>layouts</code> or <code>(render/document)</code> files. This markup is what YAML uses to give each file meta data. This meta data will describe how our nested files should be included. Included below is a sample of what YAML markup would look like with the meta data for each</p>
+<pre><code>    ---
+    title: &quot;Best thing ever!&quot;
+    layout: &quot;default&quot;
+    ---
+
+    Some content.
+</code></pre><h2 id="example">Example</h2>
+<p>Lets look at the following example. We want to pass the contents of, <code>index -&gt; index-somthing -&gt; default</code></p>
+<h5 id="folder-structure-">Folder Structure:</h5>
+<pre><code>    layouts/
+        default.html.eco
+        index-somthing.html.eco
+    render/
+        index.html
+    static/
+</code></pre><h5 id="index-html">index.html</h5>
+<pre><code>    ---
+    title: &quot;Best thing ever!&quot;
+    layout: &quot;index-somthing&quot;
+    ---
+    &lt;p&gt;This will be the best website ever.&lt;/p&gt;
+</code></pre><p>The <code>index.html</code> first gets rendered from eco to html then meta data in YAML specifies to the layout <code>index-somthing.html.eco</code>. You do not specify the file extensions when it is referenced in the YAML metadata layout.</p>
+<h5 id="index-somthing-html-eco">index-somthing.html.eco</h5>
+<pre><code>    ---
+    layout: &quot;default&quot;
+    ---
+    &lt;h2&gt;Header&lt;/h2&gt;
+    &lt;%- @content %&gt;
+</code></pre><p>Notice in this file, <code>&lt;%- @content %&gt;</code> which specifies where the content from the previous file to be included will be placed. We also include Meta Data <code>layout</code> to sent it&#39;s contents to <code>default.html.eco</code>.</p>
+<h5 id="default-html-eco">default.html.eco</h5>
+<pre><code class="lang-html">    &lt;html&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;content&quot;&gt;
+            &lt;%- @content %&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p>This file also contains <code>&lt;%- @content %&gt;</code> which will grab the rendered content from the previous file and place in the document.</p>
+<h5 id="rendered-index-html">Rendered index.html</h5>
+<pre><code class="lang-html">    &lt;html&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;content&quot;&gt;
+            &lt;h2&gt;Header&lt;/h2&gt;
+            &lt;p&gt;This will be the best website ever.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p>Here is the final rendered file which would appear in the <code>out/</code> folder.</p>
+<h2 id="summary">Summary</h2>
+<p>  Include meta data in document start to point to another file. That file should have <code>&lt;%- @content %&gt;</code> to be a marker of where the content should be placed. Just repeat that partner to nest files continuously. See, that wasn&#39;t so bad!</p>
+
+        </section>
+
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+             var disqus_config = function () {
+             this.page.url = "http://www.wkerrhouse.com/blog/2016/02/DocPad-Nested-Layouts.html";  // Replace PAGE_URL with your page's canonical URL variable
+             this.page.identifier = 'DocPad Nested Layouts Example'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+             };
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+
+                s.src = '//kerrhouse.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            <section class="row">
+                <div class="col-full">
+                    <p>
+                        Copyright &copy; 2016+ All rights reserved.
+                    </p>
+                </div>
+            </section>
+		</div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script defer="defer"  src="/vendor/jquery.fluidbox.min.js"></script><script defer="defer"  src="/js/main.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-48850821-3', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+
+    </body>
+</html>
